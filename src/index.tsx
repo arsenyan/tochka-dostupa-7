@@ -1,11 +1,19 @@
+import 'react-app-polyfill/ie11'
+import 'react-app-polyfill/stable'
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { hydrate, render } from "react-dom"
 import App from './App'
 
-
-ReactDOM.render(
+const rootComponent = (
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-)
+  </React.StrictMode>
+);
+
+const rootElement = document.getElementById('root') as HTMLElement;
+
+if (rootElement.hasChildNodes()) {
+  hydrate(rootComponent, rootElement);
+} else {
+  render(rootComponent, rootElement);
+}
