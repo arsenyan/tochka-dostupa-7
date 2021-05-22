@@ -5,7 +5,6 @@ import {
   Switch,
   Route,
 } from "react-router-dom"
-import 'react-app-polyfill/ie11'
 
 import { Provider } from './components/Store'
 import Helmet from './components/Helmet'
